@@ -9,7 +9,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('prova/new/', view_prova.create, name='prova'),
-    path('prova/new/<str:id>/', view_prova.prova, name='prova'),
+    path('prova/new/<uuid:id>/', view_prova.prova, name='prova'),
     path('prova/list/', view_prova.list_provas, name='prova'),
 
     path('disciplina/new/', view_disciplinas.create, name='disciplinas'),
