@@ -13,5 +13,5 @@ def create(request):
     form = DisciplinaForm(request.POST or None)
     if form.is_valid():
         form.save()
-    return render(request, 'create.html', {'form': form})
+    return render(request, 'create_disciplina.html', {'form': form})
 

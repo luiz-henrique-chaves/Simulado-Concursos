@@ -1,16 +1,33 @@
-<style>
-    .title{
-        width: 100%;
-        height: auto;
-        background-color: gold;
-        text-align: center;
-    }
-    .mensagem{
-        width: 100%;
-        height: auto;
-        background-color: red;
-        text-align: center;
-    }
-</style>
 
-<div class="title"><h2>{{ dataset }}</h2></div>
+<!DOCTYPE html>
+ <html>
+  <head>
+    <title>Testeee</title>
+    <style>
+        .title{
+            width: 100%;
+            height: auto;
+            background-color: gold;
+            text-align: center;
+        }
+        .mensagem{
+            width: 100%;
+            height: auto;
+            background-color: red;
+            text-align: center;
+        }
+    </style>
+    <script>
+      prova_data = {
+        'title': '{{dataset.title}}',
+        'id': '{{dataset.id}}',
+        'disciplina': '{{dataset.disciplina.id}}',
+      }
+    </script>
+  </head>
+  <body>
+    <div class="title"><h2>{{ dataset }}</h2></div>
+    {% include "create_question.html" %}
+    {% block question %}{% endblock question %}
+  </body>
+</html>

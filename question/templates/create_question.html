@@ -1,0 +1,39 @@
+<html>
+   <head>
+    <style>
+        .button-save-question{
+            width: 100px; 
+            background-color: #03a9f4; 
+            padding: 10px;
+            text-align:center;
+            border: 0px solid;
+            border-radius:5px;
+          }
+        </style>
+        
+      </head>
+      <body>
+        {% block question %}
+        <form action = "http://localhost:8000/question/new/" method = "post">
+          {% csrf_token %}
+          <p>
+             <label for="id_issue">Digite a questão</label><br>
+             <textarea name="issue" cols="70" rows="7" required id="id_issue"></textarea>
+          </p>
+          <p>
+            <input type="hidden" name="disciplina" value="">
+            <input type="hidden" name="prova" value="">
+            <script>
+              document.querySelector("input[name='disciplina']").value = prova_data['disciplina']
+              document.querySelector("input[name='prova']").value = prova_data['id']
+            </script>
+          <p>
+          <input type="submit" value=Submit">
+        </form>
+    
+    {% endblock question %}
+   </body>
+</html> 
+
+
+
