@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0">
+    <div class="container-fluid d-flex flex-column p-0">
+        <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
+            <div class="sidebar-brand-text mx-3"><span>Ryck</span></div>
+        </a>
+        <hr class="sidebar-divider my-0">
+        <ul class="nav navbar-nav text-light" id="accordionSidebar">
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:dashBoard_master_user' %}"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:profile_master_user' %}"><i class="fas fa-user"></i><span>Profile</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:table_master_user' %}"><i class="fas fa-table"></i><span>Table</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:provas_master_user' %}"><i class="fas fa-file-alt"></i><span>Provas</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:materias_master_user' %}"><i class="fas fa-table"></i><span>Matérias</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:login_master_user' %}"><i class="far fa-user-circle"></i><span>Login</span></a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'core_urls:register_master_user' %}"><i class="fas fa-user-circle"></i><span>Register</span></a></li>
+        </ul>
+        <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
+    </div>
+</nav>
