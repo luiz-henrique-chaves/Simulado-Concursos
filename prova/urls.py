@@ -10,4 +10,5 @@ urlpatterns = [
     path('new/<uuid:id>/', prova, name='prova_new_id'),     
     path('list/', list_provas, name='prova_list'),
     path('<uuid:id>/', list_answers_por_materias, name='list_answers_por_materias'),
+
 ]

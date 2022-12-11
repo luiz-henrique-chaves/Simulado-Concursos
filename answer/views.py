@@ -34,6 +34,7 @@ def list_answers_por_materias(request, id, titulo=None):
                 'c': answer.c,
                 'd': answer.d,
                 'alternative_correct': answer.alternative_correct,
+                'explanation': answer.explanation,
                 'disciplina': answer.question.prova.disciplina.title,
             }
         })

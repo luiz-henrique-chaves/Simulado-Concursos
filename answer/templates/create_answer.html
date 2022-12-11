@@ -1,4 +1,3 @@
-{% block answer %}
 <p>
    <label for="id_a">A:</label>
    <textarea class='textareaAnswer' name="a" cols="90" rows="3" maxlength="200" required id="id_a">
@@ -29,4 +28,9 @@
       <option value="D">D</option>
    </select>
 </p>
-{% endblock answer %}
+
+<p>
+   <label for="id_alternative_correct">Explicação</label>
+   <textarea class='textareaAnswer' name="explanation" cols="90" required id="id_explanation">
+   </textarea>
+</p>

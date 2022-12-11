@@ -15,5 +15,6 @@ class AnswerModel(models.Model):
     c = models.TextField(max_length=200)
     d = models.TextField(max_length=200)
     alternative_correct = models.CharField(max_length=1, choices=ALTERNATIVES_CHOICES, blank=False, null=False)
+    explanation = models.TextField(max_length=1650)
     question = models.ForeignKey(QuestionModel, on_delete=models.CASCADE)
 

@@ -60,16 +60,14 @@
                             </form>
                         </div>
                         <div class='col-md-5'>
-                            <button class="btn btn-primary py-0" type="button">Edit</button>
+                            <a class="btn btn-primary py-0" href="{% url 'question_urls:question_answer_update' id=i.AnswerModel.question_id %}">Edit</a>
                         </div>
                     </div>
-                    
-
                     
                 </div>
                 
                 <div class="card shadow" style='margin-top:-20px;'>
-                    <div class="card-header py-3">
+                   <div class="card-header py-3">
                         <p class="text-primary m-0 font-weight-bold">{{ i.AnswerModel.question }}</p>
                     </div>
                     <div class="card-body">
@@ -89,7 +87,10 @@
                             </div>
                             <div >
                                 <mark style='padding:5px;background-color:#8bc34a;'> resposta correta: {{ i.AnswerModel.alternative_correct }} </mark>
-                            </div>                       
+                            </div>  
+                            <div style="color:black;background-color:#e3e6f0;padding:5px;border:0px solid;border-radius:10px;margin-bottom:5px;">
+                                {{ i.AnswerModel.explanation }}
+                            </div>                     
                         </div>
                         
                         

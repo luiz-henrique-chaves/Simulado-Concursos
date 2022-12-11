@@ -30,27 +30,27 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <form method='POST' action="{% url 'prova_urls:prova_create' %}">
                     <div class="modal-dialog" role="document">
-                       <div class="modal-content" style='background-color:#ab4366;'>
+                       <div class="modal-content" style='background-color:white;'>
                           <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                              </button>
                           </div>
-                          <div class="modal-body" style='color:white !important;background-color:#e75486;'>
+                          <div class="modal-body" style='color:black !important;background-color:white;'>
                              <!--security token-->
                             {% csrf_token %}                
                             {{ form.as_p }}                
                             <style>
                                 p input {
                                     width:340px;
-                                    border: 0px solid;
+                                    border: 1px solid;
                                     border-radius:5px;
                                     margin-left:10px;
                                     padding:3px;
                                 }
 
                                 p select{
-                                    border: 0px solid;
+                                    border: 1px solid;
                                     border-radius:5px;
                                     margin-left:10px;
                                     padding:3px;
@@ -58,8 +58,8 @@
                             </style>
                           </div>
                           <div class="modal-footer">
-                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                             <button type="submit" value="submit" class="btn btn-primary">Save changes</button>
+                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                             <button type="submit" value="submit" class="btn btn-primary">Gravar prova</button>
                           </div>
                        </div>
                     </div>

@@ -29,12 +29,14 @@ def provaContinue(request):
                     c = data['c'],
                     d = data['d'],
                     alternative_correct = data['alternative_correct'],
+                    explanation  = data['explanation'],
                     question  = question,
                 )
         except Exception as e:
             print(e)
 
         return redirect("prova_urls:list_answers_por_materias", request.POST['id_prova'])
+
 
 def list_provas(request):
     form = ProvaForm(request.POST or None)
@@ -60,8 +62,7 @@ def create(request):
     if form.is_valid():
         prova = form.save()
         return redirect(f'/prova/{prova.id}')
-    return render(request, 'create_prova.html', {'form': form})
-
+    return  redirect("prova_urls:prova_list")
 
 def delete (request, id):
     context = {}
