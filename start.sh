@@ -4,4 +4,4 @@
 service nginx start
 
 # Start gunicorn
-gunicorn --bind :8000 --workers 3 ryck.wsgi
+gunicorn --bind :8081 --workers 3 ryck.wsgi
