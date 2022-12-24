@@ -10,14 +10,30 @@ COPY requirements.txt /ryck/requirements.txt
 # Install dependencies
 RUN pip install -r requirements.txt
 
+# Install nginx
+RUN apt-get update && apt-get install -y nginx
+
+# Remove the default nginx configuration file
+RUN rm /etc/nginx/sites-enabled/default
+
+# Copy the nginx configuration file
+COPY nginx.conf /etc/nginx/sites-enabled/
+
 # Copy the rest of the project
 COPY . /app
 
 # Collect static files
 RUN python manage.py collectstatic --no-input
 
-# Expose port 8000
-EXPOSE 8000
+# Expose ports 7000 and 8081
+EXPOSE 7000
+EXPOSE 8081
+
+# Copy the start script
+COPY start.sh /ryck/start.sh
+
+# Make the start script executable
+RUN chmod +x /ryck/start.sh
 
 # Start the server
-CMD ["gunicorn", "--bind", ":8000", "--workers", "3", "ryck.wsgi"]
+CMD ["/ryck/start.sh"]
