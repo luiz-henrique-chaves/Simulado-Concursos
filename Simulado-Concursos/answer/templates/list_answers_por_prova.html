@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Materias</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    
+    {% include "masteruser/modulos/importationcss.html" %}
+
+    <style>
+        .textareaAnswer{
+            width: 100%;
+            height: 50px;
+        }
+        .textareaQuestion{
+            width: 100%;
+        }
+        label {
+            color: black !important;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        
+        {% include "masteruser/modulos/menu_lateral.html" %}
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                {% include "masteruser/modulos/header.html" %}
+            <div style='background-color:#e83e8c;color:white;text-align:center;padding:15px;margin-left:28px;margin-bottom:3px;'>
+            <h4>{{ prova_title }}</h4>
+            </div>
+
+            <div class="text-dark mb-4" style='margin-left:28px;background-color:#fd7e14;width:160px;padding:12px;border:0px solid;border-radius:4px;color:white !important;'>
+                Question
+                <button style='background-color:white !important;color:black;border:0px solid;' type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Novo
+                </button>
+
+                <form method="POST" action="{% url 'prova_urls:prova_new_redirect' %}">
+                {% csrf_token %}
+                <input type="hidden" name="id_prova" value="{{ prova_id }}" readonly>
+                {% include "prova.html" %}
+                </form>
+
+            </div>
+
+            {% if messages %}
+               <ul class="messages">
+                  {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            <div class="alert alert-succgiess alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </li>
+                  {% endfor %}
+               </ul>
+            {% endif %}
+            
+            {% for i in context %}
+            <div class="container-fluid"><br>
+                <div class="text-dark mb-4" style="padding:10px;border: 1px solid silver;background-color:white;width:165px;text-align:center;border-radius:20px;">
+                    <div class='row'>
+                        <div class='col-md-6'>
+                            <form action="{% url 'question_urls:question_delete' id=i.AnswerModel.question_id %}" method='POST'>
+                                {% csrf_token %}
+                                <input class="btn btn-danger py-0" type='submit' value='Delete' />
+                            </form>
+                        </div>
+                        <div class='col-md-5'>
+                            <a class="btn btn-primary py-0" href="{% url 'question_urls:question_answer_update' id=i.AnswerModel.question_id %}">Edit</a>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="card shadow" style='margin-top:-20px;'>
+                   <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">{{ i.AnswerModel.question }}</p>
+                    </div>
+                    <div class="card-body">
+                        
+                         <div class='list-answers'>
+                            <div style="color:black;background-color:#e3e6f0;padding:5px;border:0px solid;border-radius:10px;margin-bottom:5px;">
+                                A) {{ i.AnswerModel.a }}
+                            </div>
+                            <div style="color:black;background-color:#e3e6f0;padding:5px;border:0px solid;border-radius:10px;margin-bottom:5px;">
+                                B) {{ i.AnswerModel.b }}
+                            </div>
+                            <div style="color:black;background-color:#e3e6f0;padding:5px;border:0px solid;border-radius:10px;margin-bottom:5px;">
+                                C) {{ i.AnswerModel.c }}
+                            </div>
+                            <div style="color:black;background-color:#e3e6f0;padding:5px;border:0px solid;border-radius:10px;margin-bottom:5px;">
+                                D) {{ i.AnswerModel.d }}
+                            </div>
+                            <div >
+                                <mark style='padding:5px;background-color:#8bc34a;'> resposta correta: {{ i.AnswerModel.alternative_correct }} </mark>
+                            </div>  
+                            <div style="color:black;background-color:#e3e6f0;padding:5px;border:0px solid;border-radius:10px;margin-bottom:5px;">
+                                {{ i.AnswerModel.explanation }}
+                            </div>                     
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% include "masteruser/modulos/footer.html" %}
+
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    {% load static %}
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+
+</html>

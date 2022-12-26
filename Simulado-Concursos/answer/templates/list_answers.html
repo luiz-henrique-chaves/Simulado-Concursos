@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Materias</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    
+    {% include "masteruser/modulos/importationcss.html" %}
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        
+        {% include "masteruser/modulos/menu_lateral.html" %}
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+            {% include "masteruser/modulos/header.html" %}
+
+            {% for data in dataset %}
+            <div class="container-fluid"><br>
+                <div class="text-dark mb-4" style="border: 0px solid;background-color:gold;width:240px;text-align:center;border-radius:20px;">{{ data.question.prova.disciplina.title }}: </div>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">{{ data.question.prova.title }}</p>
+                    </div>
+                    <div class="card-body">
+                        
+                        <div class='list-answers'>
+                            
+                                Question: {{ data.question.issue }}<br>
+                                A: {{ data.a }}<br>
+                                B: {{ data.b }}<br>
+                                C: {{ data.c }}<br>
+                                D: {{ data.d }}<br>
+                                Correto: {{ data.alternative_correct }}<br>
+                                <hr>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% include "masteruser/modulos/footer.html" %}
+        
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    {% load static %}
+    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/chart.min.js' %}"></script>
+    <script src="{% static 'assets/js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+
+</html>
