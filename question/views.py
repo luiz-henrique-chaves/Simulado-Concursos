@@ -1,9 +1,11 @@
 from answer.models import AnswerModel
 from answer.forms import AnswerForm
+from answer.views import create_answer
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import QuestionModel
 from .forms import QuestionForm
 from disciplina.models import DisciplinaModel
+from prova.objectExpose import ExposeObject
 
 def list_questions(request):
     return render(
@@ -16,8 +18,14 @@ def list_questions(request):
     )
 
 
-def create(request):
-    return render(request, 'create_question.html')
+def create_question(request, prova):
+    """Cria uma questão com base nos dados da solicitação HTTP POST e vincula a prova especificada à questão."""
+    question, created = QuestionModel.objects.get_or_create(
+        issue=request.POST['issue'],
+        prova=prova
+    )
+    return ExposeObject({'created':created, 'object':question})
+        
 
 def delete (request, id):
     context = {}
@@ -28,8 +36,6 @@ def delete (request, id):
     if request.method == 'POST':
         obj.delete()
         return redirect("prova_urls:list_answers_por_materias", copy.prova.id)
-    
-    #return render(request, 'delete_view.html', context)
 
 def question_answer_update(request, id):
     context = {}

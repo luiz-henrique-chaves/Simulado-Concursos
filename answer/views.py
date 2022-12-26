@@ -4,6 +4,7 @@ from prova.models import ProvaModel
 from .models import AnswerModel
 from question.models import QuestionModel
 from django.http import Http404
+from prova.objectExpose import ExposeObject
 
 def list_answers(request):
     return render(
@@ -45,5 +46,21 @@ def list_answers_por_materias(request, id, titulo=None):
     )
 
 
-def create(request):
-    return render(request, 'create_answer.html')
+def create_answer(request, question):
+    """
+    Cria uma resposta com base nos dados da solicitação HTTP POST 
+    e vincula a questão especificada à resposta.
+    """
+
+    answer, created = AnswerModel.objects.get_or_create(
+        a=request.POST['a'],
+        b=request.POST['b'],
+        c=request.POST['c'],
+        d=request.POST['d'],
+        alternative_correct=request.POST['alternative_correct'],
+        explanation=request.POST['explanation'],
+        question=question
+    )
+    return ExposeObject({'created':created, 'answer':answer})
+    
+

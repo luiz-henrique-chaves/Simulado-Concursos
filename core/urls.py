@@ -10,5 +10,5 @@ urlpatterns = [
     path('profile/', Profile_Master_User, name='profile_master_user'),
     path('usuarios/', Table_Master_User, name='table_master_user'),
     path('materias/', Materia_Master_User, name='materias_master_user'),
-    path('provas/', list_provas, name='provas_master_user'),
+    path('provas/', display_prova_list, name='provas_master_user'),
 ]
