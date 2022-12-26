@@ -1,0 +1,14 @@
+iptables-save | grep 80
+systemctl start firewalld
+firewall-cmd --zone=public --add-port=80/tcp
+firewall-cmd --zone=public --add-port=80/udp
+iptables-save | grep 80
+
+
+O comando "iptables-save | grep 80" é usado para listar as regras do firewall que se aplicam à porta 80. O comando "iptables-save" salva as regras do firewall em um arquivo e o "grep 80" filtra as regras que mencionam a porta 80. Isso é útil para verificar se há alguma regra do firewall que bloqueie ou permita o tráfego de rede na porta 80.
+
+O comando "systemctl start firewalld" é usado para iniciar o daemon do firewall "firewalld". O daemon do firewall é um processo que gerencia as regras do firewall e bloqueia ou permite o tráfego de rede de acordo com as regras configuradas. É necessário iniciar o daemon do firewall para poder usar os comandos "firewall-cmd" para gerenciar as regras do firewall.
+
+O comando "firewall-cmd --zone=public --add-port=80/tcp" é usado para adicionar uma regra ao firewall para permitir o tráfego de rede na porta 80 para o protocolo TCP. Isso é útil para permitir que o "nginx" ou outros servidores Web recebam solicitações de rede via TCP.
+
+O comando "firewall-cmd --zone=public --add-port=80/udp" é usado para adicionar uma regra ao firewall para permitir o tráfego de rede na porta 80 para o protocolo UDP. Isso é útil para permitir que o "nginx" ou outros servidores Web recebam solicitações de rede via UDP.
