@@ -4,6 +4,9 @@ firewall-cmd --zone=public --add-port=80/tcp
 firewall-cmd --zone=public --add-port=80/udp
 iptables-save | grep 80
 
+VERIFICAR SE A PORTA ESTÁ ABERTA E ESTÁ FUNCIONANDO CORRETAMENTE:
+telnet localhost 80
+
 
 O comando "iptables-save | grep 80" é usado para listar as regras do firewall que se aplicam à porta 80. O comando "iptables-save" salva as regras do firewall em um arquivo e o "grep 80" filtra as regras que mencionam a porta 80. Isso é útil para verificar se há alguma regra do firewall que bloqueie ou permita o tráfego de rede na porta 80.
 
