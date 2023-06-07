@@ -1,8 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-from disciplina import views as view_disciplinas
-from question import views as view_question
-from answer import views as view_answer
 from core.views import *
 
 

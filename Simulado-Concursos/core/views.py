@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from disciplina.models import DisciplinaModel
-from prova.models import ProvaModel
 
 
 def TemplateIndex(request):

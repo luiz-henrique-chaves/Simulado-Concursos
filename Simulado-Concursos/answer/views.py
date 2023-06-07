@@ -1,5 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from .forms import AnswerForm
+from django.shortcuts import render, get_object_or_404
 from prova.models import ProvaModel
 from .models import AnswerModel
 from question.models import QuestionModel

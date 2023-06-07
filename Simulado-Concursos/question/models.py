@@ -1,5 +1,4 @@
 from django.db import models
-from disciplina.models import DisciplinaModel
 from prova.models import ProvaModel
 import uuid
 

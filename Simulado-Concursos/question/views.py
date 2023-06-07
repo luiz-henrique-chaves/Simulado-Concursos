@@ -1,6 +1,5 @@
 from answer.models import AnswerModel
 from answer.forms import AnswerForm
-from answer.views import create_answer
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import QuestionModel
 from .forms import QuestionForm
