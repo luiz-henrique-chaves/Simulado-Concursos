@@ -14,4 +14,4 @@ ENV GUNICORN_CMD_ARGS="--worker-tmp-dir /dev/shm"
 ENV WORKERS=3
 ENV THREADS=4
 
-CMD ["gunicorn", "--workers=$WORKERS", "--threads=$THREADS", "--worker-class=gthread", "-c", "conf/gunicorn_config.py", "ryck.wsgi"]
+CMD ["gunicorn", "--workers=$WORKERS", "--threads=$THREADS", "--worker-class=gthread", "-c", "conf/gunicorn_config.py", "ryck.wsgi:application"]
