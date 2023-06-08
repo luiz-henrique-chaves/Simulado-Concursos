@@ -10,8 +10,4 @@ COPY . .
 
 EXPOSE 8000
 
-ENV GUNICORN_CMD_ARGS="--worker-tmp-dir /dev/shm"
-ENV WORKERS=3
-ENV THREADS=4
-
-CMD ["gunicorn", "--workers=$WORKERS", "--threads=$THREADS", "--config", "conf/gunicorn_config.py", "ryck.wsgi:application"]
+CMD ["gunicorn", "--config", "conf/gunicorn_config.py", "ryck.wsgi:application"]
