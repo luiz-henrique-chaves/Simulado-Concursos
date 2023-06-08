@@ -1,0 +1,29 @@
+header.masthead .overlay {
+  background-color: #87005b;
+  color: white;
+}
+
+
+.lead.subtitulo {
+  background-color: green;
+}
+
+.bg-light {
+  background-color: white;
+  color: #112151;
+  border-bottom: 3px #0054a0 solid;
+}
+
+.navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+  color: #112151;
+}
+
+h1.mb-5 {
+  margin-top: 100px;
+  color: white;
+  background-color: red;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}

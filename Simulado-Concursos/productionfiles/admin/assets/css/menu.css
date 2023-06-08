@@ -1,0 +1,10 @@
+.container-fluid.d-flex.flex-column.p-0 {
+    background-color: #e91e63;
+}
+nav.navbar.navbar-dark.align-items-start.sidebar.sidebar-dark.accordion.p-0 {
+    background-color: #e91e63;
+}
+
+.sidebar-dark #sidebarToggle {
+    background-color: #cddc39;
+}
